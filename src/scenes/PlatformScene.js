@@ -18,7 +18,7 @@ export default class PlatformScene extends Phaser.Scene {
     this.isPlayerDead = false;
 
     const map = this.make.tilemap({ key: "map" });
-    const tiles = map.addTilesetImage("0x72-industrial-tileset-32px-extruded", "tiles");
+    const tiles = map.addTilesetImage("codeit-lvl1", "tiles");
 
     map.createDynamicLayer("Background", tiles);
     map.createDynamicLayer("Foreground", tiles);
