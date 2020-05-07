@@ -5,12 +5,7 @@ export default class MouseTileMarker {
 
     this.graphics = scene.add.graphics();
 
-    // First Stroke
     this.graphics.lineStyle(5, 0xffffff, 1);
-    this.graphics.strokeRect(0, 0, map.tileWidth, map.tileHeight);
-
-    // Second Stroke
-    this.graphics.lineStyle(3, 0xff4f78, 1);
     this.graphics.strokeRect(0, 0, map.tileWidth, map.tileHeight);
   }
 
