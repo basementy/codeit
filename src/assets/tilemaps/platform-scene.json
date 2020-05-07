@@ -71,7 +71,7 @@
          "imageheight":1088,
          "imagewidth":1088,
          "margin":1,
-         "name":"0x72-industrial-tileset-32px-extruded",
+         "name":"codeit-lvl1",
          "spacing":2,
          "tilecount":1024,
          "tileheight":32,
@@ -14434,19 +14434,6 @@
                          "value":false
                         }]
                 }],
-         "tilewidth":32
-        }, 
-        {
-         "columns":34,
-         "firstgid":1025,
-         "image":"..\/tilesets\/map.png",
-         "imageheight":1088,
-         "imagewidth":1088,
-         "margin":0,
-         "name":"industrial-tileset",
-         "spacing":0,
-         "tilecount":1156,
-         "tileheight":32,
          "tilewidth":32
         }],
  "tilewidth":32,
