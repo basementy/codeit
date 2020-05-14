@@ -14,7 +14,6 @@ export default class PlatformScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(this);
     this.isPlayerDead = false;
 
     const map = this.make.tilemap({ key: "map" });
