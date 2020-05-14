@@ -1,11 +1,10 @@
 export default class MouseTileMarker {
   constructor(scene, map) {
-    this.map = map;
     this.scene = scene;
+    this.map = map;
 
     this.graphics = scene.add.graphics();
-
-    this.graphics.lineStyle(5, 0xffffff, 1);
+    this.graphics.lineStyle(3, 0xffffff, 1);
     this.graphics.strokeRect(0, 0, map.tileWidth, map.tileHeight);
   }
 
@@ -15,7 +14,8 @@ export default class MouseTileMarker {
     const pointerTileXY = this.map.worldToTileXY(worldPoint.x, worldPoint.y);
     const snappedWorldPoint = this.map.tileToWorldXY(pointerTileXY.x, pointerTileXY.y);
 
-    this.graphics.setPosition(snappedWorldPoint.x, snappedWorldPoint.y);
+    this.graphics
+      .setPosition(snappedWorldPoint.x, snappedWorldPoint.y);
   }
 
   destroy() {
