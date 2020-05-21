@@ -1,13 +1,13 @@
 import Phaser from "phaser";
-import PlatformScene from "./scenes/PlatformScene.js";
+import LevelOne from "./levels/1 - Tutorial";
 
 const config = {
   type: Phaser.AUTO,
   width: 800,
-  height: 600,
+  height: 400,
   parent: "game",
   pixelArt: true,
-  scene: [PlatformScene],
+  scene: [LevelOne],
   backgroundColor: "#1d212d",
   physics: {
     default: "arcade",
