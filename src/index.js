@@ -1,3 +1,4 @@
+import Phaser from "phaser";
 import PlatformScene from "./scenes/PlatformScene.js";
 
 const config = {
@@ -6,8 +7,8 @@ const config = {
   height: 600,
   parent: "game",
   pixelArt: true,
+  scene: [PlatformScene],
   backgroundColor: "#1d212d",
-  scene: PlatformScene,
   physics: {
     default: "arcade",
     arcade: {
