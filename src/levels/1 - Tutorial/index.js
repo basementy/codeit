@@ -2,34 +2,50 @@ import Player from "../../actors/player.js";
 import MouseTileMarker from "../../utils/MouseTileMarker.js";
 
 export default class LevelOne extends Phaser.Scene {
-  preload() {
-    this.load.image("tiles", "./src/assets/tilesets/map.png");
-    this.load.tilemapTiledJSON("map", "./src/assets/tilemaps/lvl1.json");
+	preload() {
+		// Loading Tileset Used
+		this.load.image("tiles", "./src/assets/tilesets/map.png");
+
+		// Loading Tilemap Used
+		this.load.tilemapTiledJSON("map", "./src/assets/tilemaps/lvl1.json");
+
+		// Loading Player Spritesheet
     this.load.spritesheet(
       "player", "./src/assets/spritesheets/player.png",
       { frameWidth: 32, frameHeight: 32, margin: 1, spacing: 2 }
-      );
+    );
   }
 
-  create() {
+	create() {
+		// Initial State
     this.isPlayerDead = false;
     this.lifeCount = 5;
 
+		// Setting Map - Tilemap + Tileset
     const map = this.make.tilemap({ key: "map" });
     const tiles = map.addTilesetImage("codeit-lvl1", "tiles");
 
+		// Objects Mapper
     this.spawnPoint = map.findObject("Objects", obj => obj.name === "Spawn Point");
+		this.exitPoint = map.findObject("Objects", obj => obj.name === "Exit Point");
 
-    map.createDynamicLayer("Background", tiles);
+		// Setting Layers to States
+		this.backgroundLayer = map.createDynamicLayer("Background", tiles);
+		this.groundLayer = map.createDynamicLayer("Ground", tiles);
 
-    this.groundLayer = map.createDynamicLayer("Ground", tiles);
+		// Actors + Utils Instance
     this.player = new Player(this, this.spawnPoint.x, this.spawnPoint.y);
-    this.marker = new MouseTileMarker(this, map);
+		this.marker = new MouseTileMarker(this, map);
 
+		// Collision Definitions
     this.groundLayer.setCollisionByProperty({ collides: true });
-    this.physics.world.addCollider(this.player.sprite, this.groundLayer);
+		this.physics.world.addCollider(this.player.sprite, this.groundLayer);
+
+		// Camera Definition
     this.cameras.main.startFollow(this.player.sprite);
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+		this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+		// Graphics
     this.lifeCountText = this.add.text(8, 8, `Life: ${this.lifeCount}`, {
       font: "14px monospace",
       fill: "#000000",
@@ -48,7 +64,7 @@ export default class LevelOne extends Phaser.Scene {
     const worldPoint = pointer.positionToCamera(this.cameras.main);
 
     if (pointer.isDown) {
-      console.log(pointer);
+			// TODO: Create Mouse Interaction
     }
   }
 

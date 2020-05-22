@@ -24,11 +24,8 @@ export default class Player {
       .setSize(18, 24)
       .setOffset(7, 9);
 
-    const { LEFT, RIGHT, UP, W, A, D } = Phaser.Input.Keyboard.KeyCodes;
+    const { W, A, D } = Phaser.Input.Keyboard.KeyCodes;
     this.keys = scene.input.keyboard.addKeys({
-      left: LEFT,
-      right: RIGHT,
-      up: UP,
       w: W,
       a: A,
       d: D
@@ -45,17 +42,17 @@ export default class Player {
     const onGround = sprite.body.blocked.down;
     const acceleration = onGround ? 600 : 200;
 
-    if (keys.left.isDown || keys.a.isDown) {
+    if (keys.a.isDown) {
       sprite.setAccelerationX(-acceleration);
       sprite.setFlipX(true);
-    } else if (keys.right.isDown || keys.d.isDown) {
+    } else if (keys.d.isDown) {
       sprite.setAccelerationX(acceleration);
       sprite.setFlipX(false);
     } else {
       sprite.setAccelerationX(0);
     }
 
-    if (onGround && (keys.up.isDown || keys.w.isDown)) {
+    if (onGround && (keys.w.isDown)) {
       sprite.setVelocityY(-500);
     }
 
