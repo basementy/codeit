@@ -3,6 +3,9 @@ import MouseTileMarker from "../../utils/MouseTileMarker.js";
 
 export default class LevelOne extends Phaser.Scene {
 	preload() {
+		// Loading Game Music
+		this.load.audio("background", "./src/assets/sounds/background.mp3");
+
 		// Loading Tileset Used
 		this.load.image("tiles", "./src/assets/tilesets/map.png");
 
@@ -19,7 +22,11 @@ export default class LevelOne extends Phaser.Scene {
 	create() {
 		// Initial State
     this.isPlayerDead = false;
-    this.lifeCount = 5;
+		this.lifeCount = 5;
+
+		// Initiate Music
+		this.backgroundMusic = this.sound.add("background");
+		this.backgroundMusic.play({ volume: 0.4 });
 
 		// Setting Map - Tilemap + Tileset
     const map = this.make.tilemap({ key: "map" });
@@ -58,10 +65,10 @@ export default class LevelOne extends Phaser.Scene {
     if (this.isPlayerDead) return;
 
     this.marker.update();
-    this.player.update();
+		this.player.update();
 
     const pointer = this.input.activePointer;
-    const worldPoint = pointer.positionToCamera(this.cameras.main);
+		const worldPoint = pointer.positionToCamera(this.cameras.main);
 
     if (pointer.isDown) {
 			// TODO: Create Mouse Interaction
