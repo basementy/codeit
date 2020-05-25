@@ -2,6 +2,10 @@ import Player from "../../actors/player.js";
 import MouseTileMarker from "../../utils/MouseTileMarker.js";
 
 export default class LevelOne extends Phaser.Scene {
+	constructor() {
+		super('LevelOne');
+	}
+
 	preload() {
 		// Loading Game Music
 		this.load.audio("background", "./src/assets/sounds/background.mp3");
@@ -25,8 +29,8 @@ export default class LevelOne extends Phaser.Scene {
 		this.lifeCount = 5;
 
 		// Initiate Music
-		this.backgroundMusic = this.sound.add("background");
-		this.backgroundMusic.play({ volume: 0.4 });
+		// this.backgroundMusic = this.sound.add("background");
+		// this.backgroundMusic.play({ volume: 0.4 });
 
 		// Setting Map - Tilemap + Tileset
     const map = this.make.tilemap({ key: "map" });
@@ -51,6 +55,11 @@ export default class LevelOne extends Phaser.Scene {
 		// Camera Definition
     this.cameras.main.startFollow(this.player.sprite);
 		this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+		this.input.on('pointerup', pointer => this.scene.restart());
+
+		this.lights.enable();
+		this.lights.addLight(0, 0, 0, 0xff0000, 1);
 
 		// Graphics
     this.lifeCountText = this.add.text(8, 8, `Life: ${this.lifeCount}`, {
