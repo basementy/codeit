@@ -52,11 +52,13 @@ export default class LevelOne extends Phaser.Scene {
     this.groundLayer.setCollisionByProperty({ collides: true });
 		this.physics.world.addCollider(this.player.sprite, this.groundLayer);
 
+		this.groundLayer.renderDebug;
 		// Camera Definition
     this.cameras.main.startFollow(this.player.sprite);
 		this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-		this.input.on('pointerup', pointer => this.scene.restart());
+		// Change Scene
+		// this.input.on('pointerup', pointer => this.scene.restart());
 
 		this.lights.enable();
 		this.lights.addLight(0, 0, 0, 0xff0000, 1);
@@ -67,7 +69,7 @@ export default class LevelOne extends Phaser.Scene {
       fill: "#000000",
       padding: { x: 15, y: 10 },
       backgroundColor: "#f3f3f3"
-    }).setScrollFactor(0);
+		}).setScrollFactor(0);
   }
 
   update(time, delta) {
