@@ -29,8 +29,8 @@ export default class LevelOne extends Phaser.Scene {
 		this.lifeCount = 5;
 
 		// Initiate Music
-		// this.backgroundMusic = this.sound.add("background");
-		// this.backgroundMusic.play({ volume: 0.4 });
+		this.backgroundMusic = this.sound.add("background");
+		this.backgroundMusic.play({ volume: 0.4 });
 
 		// Setting Map - Tilemap + Tileset
     const map = this.make.tilemap({ key: "map" });
