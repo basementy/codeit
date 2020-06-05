@@ -6,8 +6,7 @@
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack/base.js --open",
-    "build": "webpack --config webpack/prod.js "
+    "dev": "webpack-dev-server --config webpack/base.js --open"
   },
   "dependencies": {
     "phaser": "^3.20.1"
