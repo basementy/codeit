@@ -3,7 +3,7 @@ import MouseTileMarker from "../../utils/MouseTileMarker.js";
 
 export default class LevelOne extends Phaser.Scene {
 	constructor() {
-		super('LevelOne');
+		super('Tutorial');
 	}
 
 	preload() {
