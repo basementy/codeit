@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server --config webpack/base.js --open"
   },
   "dependencies": {
-    "phaser": "^3.20.1"
+    "phaser": "^3.20.1",
+    "phaser3-rex-plugins": "^1.1.18"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
