@@ -3,7 +3,7 @@ import MouseTileMarker from "../../utils/MouseTileMarker.js";
 
 export default class LevelOne extends Phaser.Scene {
 	constructor() {
-		super('LevelOne');
+		super('Loops');
 	}
 
 	preload() {
@@ -14,7 +14,7 @@ export default class LevelOne extends Phaser.Scene {
 		this.load.image("tiles", "./src/assets/tilesets/map.png");
 
 		// Loading Tilemap Used
-		this.load.tilemapTiledJSON("map", "./src/assets/tilemaps/lvl1.json");
+		this.load.tilemapTiledJSON("map", "./src/assets/tilemaps/lvl5.json");
 
 		// Loading Player Spritesheet
     this.load.spritesheet(
@@ -52,24 +52,21 @@ export default class LevelOne extends Phaser.Scene {
     this.groundLayer.setCollisionByProperty({ collides: true });
 		this.physics.world.addCollider(this.player.sprite, this.groundLayer);
 
-		this.groundLayer.renderDebug;
 		// Camera Definition
     this.cameras.main.startFollow(this.player.sprite);
 		this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-		// Change Scene
-		// this.input.on('pointerup', pointer => this.scene.restart());
-
-		this.lights.enable();
-		this.lights.addLight(0, 0, 0, 0xff0000, 1);
 
 		// Graphics
     this.lifeCountText = this.add.text(8, 8, `Life: ${this.lifeCount}`, {
-      font: "14px monospace",
+			font: "14px monospace",
       fill: "#000000",
       padding: { x: 15, y: 10 },
       backgroundColor: "#f3f3f3"
 		}).setScrollFactor(0);
+
+		// Change Scene
+		// this.input.on('pointerup', pointer => this.scene.restart());
   }
 
   update(time, delta) {
@@ -80,18 +77,5 @@ export default class LevelOne extends Phaser.Scene {
 
     const pointer = this.input.activePointer;
 		const worldPoint = pointer.positionToCamera(this.cameras.main);
-
-    if (pointer.isDown) {
-			// TODO: Create Mouse Interaction
-    }
-  }
-
-  updateLifeCount(count) {
-    this.lifeCount = count;
-
-    if (this.lifeCount === 0)
-      this.isPlayerDead = true;
-    else
-      this.lifeCountText.setText(`Life: ${this.lifeCount}`);
   }
 }
