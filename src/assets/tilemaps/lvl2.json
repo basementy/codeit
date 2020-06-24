@@ -69,7 +69,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":6,
+ "nextlayerid":7,
  "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -83,7 +83,7 @@
          "imageheight":1088,
          "imagewidth":1088,
          "margin":1,
-         "name":"codeit-lvl1",
+         "name":"tileset",
          "spacing":2,
          "tilecount":1024,
          "tileheight":32,

@@ -34,9 +34,9 @@ export default class LevelOne extends Phaser.Scene {
 
 		// Setting Map - Tilemap + Tileset
     const map = this.make.tilemap({ key: "map" });
-    const tiles = map.addTilesetImage("codeit-lvl1", "tiles");
+    const tiles = map.addTilesetImage("tileset", "tiles");
 
-		// Objects Mapper
+		// Objects
     this.spawnPoint = map.findObject("Objects", obj => obj.name === "Spawn Point");
 		this.exitPoint = map.findObject("Objects", obj => obj.name === "Exit Point");
 
