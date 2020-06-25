@@ -4,7 +4,7 @@ This is an educational game, created for the PAC class.
 ---
 
 Description
-This game consists of teaching basic programming in a 2D scenario in 3rd person, in which the character must solve a series of challenges in order to pass the level.
+This game consists of teaching basic programming in a mobile first game, in which the user must solve a series of challenges in order to pass the level.
 
 The game goes through phases with several construction methods, in each code there is a challenge related to programming in which type of code there is a computer and a tip.
 
