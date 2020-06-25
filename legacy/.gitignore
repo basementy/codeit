@@ -1,6 +1,0 @@
-# Vendors
-node_modules/
-*.lock
-
-# Build
-dist/
