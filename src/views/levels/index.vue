@@ -4,10 +4,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class Levels extends Vue {
-  @Prop({ type: String }) private example?: string;
-}
+export default Vue.extend({
+  name: 'Levels',
+});
 </script>

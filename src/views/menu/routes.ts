@@ -3,7 +3,7 @@ import MainMenu from './index.vue';
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: '/menu',
     name: 'menu',
     component: MainMenu,
   },
