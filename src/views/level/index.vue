@@ -10,7 +10,7 @@ export default Vue.extend({
   name: 'Level',
 
   props: {
-    id: String || Number,
+    id: String,
   },
 });
 </script>

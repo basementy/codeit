@@ -1,60 +1,91 @@
 <template>
-  <div>
-    <div>
-      <span id="title">~CodeIt</span>
-      <router-link to="/teste">
-        <button v-on:click="handleContinue" class="button">Continue</button>
-      </router-link>
-      <router-link to="/levels">
-        <button class="button">Levels</button>
-      </router-link>
+  <div class="menu-wrapper">
+    <div class="menu-wrapper__content">
+      <div class="content--title">
+        ~ code<span>it</span>
+      </div>
+      <div class="content--buttons">
+        <Button title="Continue" class="content--buttons__margin" :disabled="!currentLevel" />
+        <Button title="Levels" @click="goToLevels"/>
+      </div>
     </div>
-    <div class="footer">
-      <span>
-        created with <strong>coffe</strong>
-      </span>
+    <div class="menu-wrapper__detail">
+      created with <span>coffe</span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { mapState } from 'vuex';
 
-export default Vue.extend({});
+import Vue from 'vue';
+import Button from '@/components/Button.vue';
+
+export default Vue.extend({
+  components: {
+    Button,
+  },
+
+  computed: {
+    ...mapState(['currentLevel']),
+  },
+
+  methods: {
+    goToLevels() {
+      this.$router.replace({ name: 'levels' });
+    },
+  },
+});
 </script>
 
-<style scoped >
-
-div {
+<style scoped lang="scss">
+.menu-wrapper {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-}
 
-#title {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 48px;
-  color: #401C9C;
-  margin-top: 80%;
-  margin-bottom: 60px;
-}
+  &__content {
+    width: 100%;
+    max-width: 237px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.button {
-  background: #401C9C;
-  width: 237px;
-  height: 58px;
-  border: 0;
-  border-radius: 4px;
-  margin-bottom: 29px;
-}
+    .content--title {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 60px;
+      font-size: 48px;
+      font-weight: 700;
+      color: #401C9C;
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  color: #401C9C;
-  margin-bottom: 1rem;
-}
+      span {
+        font-weight: 500;
+        color: #230D5B;
+      }
+    }
 
+    .content--buttons {
+      width: 100%;
+
+      &__margin {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__detail {
+    position: absolute;
+    bottom: 35px;
+    color: #401C9C;
+    font-weight: 500;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
 </style>
