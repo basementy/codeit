@@ -50,7 +50,7 @@ export default {
   padding: 30px;
 
   &--content {
-    margin-top: 90px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
