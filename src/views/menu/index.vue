@@ -15,13 +15,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapState } from 'vuex';
 
-import Vue from 'vue';
 import Button from '@/components/Button.vue';
 
-export default Vue.extend({
+export default {
   components: {
     Button,
   },
@@ -35,7 +34,7 @@ export default Vue.extend({
       this.$router.replace({ name: 'levels' });
     },
   },
-});
+};
 </script>
 
 <style scoped lang="scss">

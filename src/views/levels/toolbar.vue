@@ -7,10 +7,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
   name: 'Toolbar',
 
   methods: {
@@ -18,7 +16,7 @@ export default Vue.extend({
       this.$router.replace({ name: 'menu' });
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>

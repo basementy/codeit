@@ -8,13 +8,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapGetters } from 'vuex';
 
-import Vue from 'vue';
 import Button from '@/components/Button.vue';
 
-export default Vue.extend({
+export default {
   name: 'Card',
 
   components: {
@@ -33,7 +32,7 @@ export default Vue.extend({
       });
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>

@@ -14,12 +14,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapActions, mapState } from 'vuex';
 
-import Vue from 'vue';
-
-export default Vue.extend({
+export default {
   name: 'Grid',
 
   computed: {
@@ -29,11 +27,11 @@ export default Vue.extend({
   methods: {
     ...mapActions(['setGameLevel']),
 
-    onChangeLevel({ open, id }: { open: boolean; id: number}) {
+    onChangeLevel({ open, id }) {
       if (open) this.setGameLevel(id);
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>

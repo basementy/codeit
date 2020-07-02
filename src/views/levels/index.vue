@@ -8,16 +8,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapActions, mapState } from 'vuex';
-
-import Vue from 'vue';
 
 import Card from './card.vue';
 import Grid from './grid.vue';
 import Toolbar from './toolbar.vue';
 
-export default Vue.extend({
+export default {
   name: 'Levels',
 
   components: {
@@ -43,7 +41,7 @@ export default Vue.extend({
   methods: {
     ...mapActions(['loadGameLevels', 'setGameLevel']),
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>

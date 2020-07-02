@@ -1,11 +1,11 @@
 import levels from '@/utils/levels.json';
 import types from './types';
 
-const loadGameLevels = ({ commit }: any) => {
+const loadGameLevels = ({ commit }) => {
   commit(types.SET_LEVELS, levels);
 };
 
-const setGameLevel = ({ commit }: any, levelId: number) => {
+const setGameLevel = ({ commit }, levelId) => {
   commit(types.SET_GAME_LEVEL, levelId);
 };
 
