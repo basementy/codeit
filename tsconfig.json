@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "types": [
       "webpack-env"
     ],
@@ -27,11 +28,12 @@
     ]
   },
   "include": [
+    "src/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
+    "tests/**/*.tsx", "src/store/state.ys",
   ],
   "exclude": [
     "node_modules"
