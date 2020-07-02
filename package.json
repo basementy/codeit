@@ -43,8 +43,7 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/airbnb",
-      "@vue/typescript/recommended"
+      "@vue/airbnb"
     ],
     "parserOptions": {
       "ecmaVersion": 2020
