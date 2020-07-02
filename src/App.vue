@@ -24,7 +24,9 @@ export default Vue.extend({
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
 
+body {
   background: #080525;
 }
 

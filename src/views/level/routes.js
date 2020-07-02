@@ -1,7 +1,6 @@
-import { RouteConfig } from 'vue-router';
 import Level from './index.vue';
 
-const routes: Array<RouteConfig> = [
+const routes = [
   {
     path: '/level/:id',
     name: 'level',
