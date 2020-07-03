@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Lives/>
     <div class="task">
       <span class="incomplete" />
     </div>
@@ -16,9 +17,13 @@
 </template>
 
 <script>
+import Lives from '@/components/Lives.vue';
+
 export default {
   name: 'Level',
-
+  components: {
+    Lives,
+  },
   props: {
     id: String,
   },
