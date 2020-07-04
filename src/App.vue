@@ -27,10 +27,12 @@ export default Vue.extend({
 }
 
 body {
+  box-sizing: border-box;
   background: #080525;
 }
 
 #app {
+  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -53,8 +53,8 @@ export default {
     font-size: 24px;
     color: #401C9C;
     transition: 0.3s;
-    cursor: pointer;
     user-select: none;
+    cursor: pointer;
 
     &-completed {
       background: #401C9C;

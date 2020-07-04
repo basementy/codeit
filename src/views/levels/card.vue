@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 .card-wrapper {
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: 332px;
   max-height: 287px;
   padding: 20px;
@@ -48,8 +48,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 30px;
 
   .card-wrapper--content {
     .content--title {
@@ -57,6 +55,10 @@ export default {
       font-size: 18px;
       color: #6A37EC;
       margin-bottom: 6px;
+
+      @media only screen and (max-height: 640px){
+        margin-bottom: 24px;
+      }
     }
 
     .content--description {
@@ -64,6 +66,10 @@ export default {
       line-height: 18px;
       color: #6A37EC;
       margin-bottom: 36px;
+
+      @media only screen and (max-height: 640px){
+        display: none;
+      }
     }
   }
 
