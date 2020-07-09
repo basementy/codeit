@@ -27,7 +27,7 @@ export default {
   methods: {
     onGoToLevel() {
       this.$router.replace({
-        name: 'level',
+        name: 'challenges',
         params: { id: this.levelInformation.id.toString() },
       });
     },

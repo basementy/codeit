@@ -49,7 +49,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 30px;
+  padding: 25px;
 
   &--content {
     height: 100%;
