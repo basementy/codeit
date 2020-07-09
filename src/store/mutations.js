@@ -12,7 +12,16 @@ export default {
     gameLevels[0].open = true;
     state.levels = gameLevels;
   },
+  [types.SET_CHALLENGES](state, level) {
+    const challengesFormated = level.challenges
+      .map((challenge) => ({
+        ...challenge,
+        completed: false,
+      }));
+
+    state.level = { id: level.id, challenges: challengesFormated };
+  },
   [types.SET_GAME_LEVEL](state, levelId) {
-    state.gameLevelId = levelId;
+    state.levelId = levelId;
   },
 };

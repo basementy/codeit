@@ -12,9 +12,10 @@ export default new Vuex.Store({
   actions,
   getters,
   state: {
-    userLife: null,
+    userLife: 5,
     currentLevel: null,
-    gameLevelId: 1,
+    levelId: 1,
+    level: {},
     levels: [],
   },
 });

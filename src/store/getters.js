@@ -1,4 +1,4 @@
 export default {
   levelInformation:
-    ({ gameLevelId, levels }) => levels.find(({ id }) => id === gameLevelId),
+    ({ levelId, levels }) => levels.find(({ id }) => id === levelId),
 };
