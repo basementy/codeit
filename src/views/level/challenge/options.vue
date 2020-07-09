@@ -4,6 +4,7 @@
       v-text="item.description"
       v-for="(item, index) in challengeInformation.options"
       class="options-wrapper--button"
+      :class="{'options-wrapper--error': error}"
       :key="index"
       @click="onTryAssert(item.id)"
     />
@@ -20,6 +21,7 @@ export default {
   name: 'Options',
 
   data: () => ({
+    error: false,
     openModal: false,
     options: [
       'a + b',
@@ -44,7 +46,12 @@ export default {
       if (id === this.challengeInformation.correct) {
         this.openModal = true;
       } else {
+        this.error = true;
         this.updateUserLife();
+
+        setTimeout(() => {
+          this.error = false;
+        }, 1000);
       }
     },
   },
@@ -52,6 +59,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 .options-wrapper {
   width: 100%;
   max-width: 330px;
@@ -78,6 +103,10 @@ export default {
     &:hover {
       background: #1e0c4e;
     }
+  }
+
+  &--error {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   }
 }
 </style>
