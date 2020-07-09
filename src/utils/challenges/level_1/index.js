@@ -10,7 +10,7 @@ export default {
     {
       id: 1,
       completed: false,
-      question: 'Através de algumas linguagens, podemos ver qual o tipo um dado possui uma váriavel. A partir do código abaixo, qual será o retorno no console?',
+      question: 'Através de algumas linguagens, podemos ver qual o tipo um dado possui. A partir do código abaixo, qual será o retorno no console?',
       code: question1,
       correct: 3,
       options: [
