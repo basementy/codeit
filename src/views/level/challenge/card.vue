@@ -39,6 +39,7 @@ export default {
   }
 
   &--code {
+    overflow-x: auto;
     display: flex;
     align-items: center;
     background: #080525;
@@ -48,6 +49,18 @@ export default {
     line-height: 180%;
     font-weight: 600;
 
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #100629;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #17083d;
+    }
     pre {
       display: flex;
       align-items: center;

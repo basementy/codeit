@@ -1,4 +1,4 @@
-import { question1 } from './codes';
+import { question1, question2 } from './codes';
 
 export default {
   id: 3,
@@ -20,7 +20,7 @@ export default {
       id: 2,
       completed: false,
       question: 'Agora, seguindo a mesma ideia anterior, gostariamos de declarar uma função que retorna a divisão de dois valores. Qual será o código aplicado para nos retornar essa divisão?',
-      code: 'function sum(a, b) {// Resposta}',
+      code: question2,
       correct: 4,
       options: [
         { id: 1, description: 'return a + b' },
