@@ -21,7 +21,7 @@ export default {
       completed: false,
       question: 'Como podemos consultar o valor de um determinado index dentro de um vetor, também podemos utilizar ele para outros meios também, como armazer esse valor individual. Qual será o valor de nossa váriavel?',
       code: question2,
-      correct: 2,
+      correct: 3,
       options: [
         { id: 1, description: 'João' },
         { id: 2, description: 'Pedro' },
