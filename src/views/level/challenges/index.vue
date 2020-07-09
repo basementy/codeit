@@ -9,7 +9,8 @@
         class="challenge-container"
         :class="{
           'challenge-completed': item.completed,
-          'challenge-unblocked': isUnblocked(index)
+          'challenge-unblocked': isUnblocked(index),
+          'challenge-current': isUnblocked(index) && !item.completed
         }"
         @click="onGoToChallenge(item, index)"
       >
@@ -114,6 +115,15 @@ export default {
 
       &:hover {
         opacity: 1;
+      }
+    }
+
+    .challenge-current {
+      .challenge-container--circle {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #401C9C;
       }
     }
 

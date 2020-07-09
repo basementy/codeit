@@ -4,7 +4,7 @@
       <div class="content--title">Level: {{ levelInformation.title }}</div>
       <div class="content--description" v-text="levelInformation.description" />
     </div>
-    <Button extra title="Start Level" @click="onGoToLevel" />
+    <Button extra title="Iniciar" @click="onGoToLevel" />
   </div>
 </template>
 

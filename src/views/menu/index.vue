@@ -36,7 +36,9 @@ export default {
 
   methods: {
     goToLevel() {
-      this.$router.replace({ name: 'challenges', params: { id: this.currentLevel } });
+      if (this.currentLevel) {
+        this.$router.replace({ name: 'challenges', params: { id: this.currentLevel } });
+      }
     },
 
     goToLevels() {

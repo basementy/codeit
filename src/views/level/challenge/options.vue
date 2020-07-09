@@ -56,7 +56,7 @@ export default {
   width: 100%;
   max-width: 330px;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   grid-gap: 20px;
 
