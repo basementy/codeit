@@ -48,6 +48,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 60px;
 
   .card-wrapper--content {
     .content--title {

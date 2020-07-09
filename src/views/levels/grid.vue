@@ -6,10 +6,10 @@
       class="grid-wrapper--item"
       :key="index"
       :class="{
-        'grid-wrapper--item-blocked': !level.open,
+        'grid-wrapper--item-blocked': !isUnblocked(index),
         'grid-wrapper--item-completed': level.completed
       }"
-      @click="onChangeLevel(level)"
+      @click="onChangeLevel(index, level.id)"
     />
   </div>
 </template>
@@ -27,8 +27,17 @@ export default {
   methods: {
     ...mapActions(['setGameLevel']),
 
-    onChangeLevel({ open, id }) {
-      if (open) this.setGameLevel(id);
+    isUnblocked(index) {
+      if (index === 0) {
+        return true;
+      }
+
+      const previousLevel = this.levels[index - 1];
+      return !!previousLevel.completed;
+    },
+
+    onChangeLevel(index, id) {
+      if (this.isUnblocked(index)) this.setGameLevel(id);
     },
   },
 };
@@ -38,7 +47,7 @@ export default {
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 70px);
-  grid-template-rows: repeat(3, 70px);
+  grid-template-rows: repeat(2, 70px);
   grid-column-gap: 38px;
   grid-row-gap: 38px;
 

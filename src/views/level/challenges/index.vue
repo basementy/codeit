@@ -1,7 +1,7 @@
 <template>
   <div class="challenges-wrapper">
     <div
-      v-for="(item, index) in level.challenges"
+      v-for="(item, index) in levelInformation.challenges"
       class="challenges-wrapper--challenge"
       :key="index"
     >
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Challenges',
@@ -31,22 +31,22 @@ export default {
   },
 
   created() {
-    this.loadGameLevel(parseInt(this.id, 0));
+    this.setCurrentLevel(parseInt(this.id, 0));
   },
 
   computed: {
-    ...mapState(['level']),
+    ...mapGetters(['levelInformation']),
   },
 
   methods: {
-    ...mapActions(['loadGameLevel']),
+    ...mapActions(['setCurrentLevel']),
 
     isLastChallenge(index) {
-      return index + 1 === this.level?.challenges?.length;
+      return index + 1 === this.levelInformation.challenges?.length;
     },
 
     isUnblocked(index) {
-      const previousChallenge = this.level.challenges[index - 1];
+      const previousChallenge = this.levelInformation.challenges[index - 1];
 
       if (index === 0) {
         return true;
@@ -56,9 +56,9 @@ export default {
     },
 
     onGoToChallenge(challenge, index) {
-      const { id } = challenge;
+      const { id, completed } = challenge;
 
-      if (this.isUnblocked(index)) {
+      if (this.isUnblocked(index) && !completed) {
         this.$router.replace({
           name: 'challenge',
           params: {

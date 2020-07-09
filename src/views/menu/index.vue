@@ -5,7 +5,12 @@
         ~ code<span>it</span>
       </div>
       <div class="content--buttons">
-        <Button title="Continue" class="content--buttons__margin" :disabled="!currentLevel" />
+        <Button
+          title="Continue"
+          class="content--buttons__margin"
+          :disabled="!currentLevel"
+          @click="goToLevel"
+        />
         <Button title="Levels" @click="goToLevels"/>
       </div>
     </div>
@@ -30,6 +35,10 @@ export default {
   },
 
   methods: {
+    goToLevel() {
+      this.$router.replace({ name: 'challenges', params: { id: this.currentLevel } });
+    },
+
     goToLevels() {
       this.$router.replace({ name: 'levels' });
     },

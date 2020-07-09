@@ -8,14 +8,15 @@ import getters from './getters';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  namespaced: true,
   mutations,
   actions,
   getters,
   state: {
     userLife: 5,
     currentLevel: null,
+    currentChallenge: null,
     levelId: 1,
-    level: {},
     levels: [],
   },
 });

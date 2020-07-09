@@ -10,24 +10,42 @@
         :class="{'incomplete': hasLostLife(item)}"
         :key="index" />
     </div>
+    <Modal :open="openModal" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
+
+import Modal from './modal.vue';
 
 export default {
   name: 'Toolbar',
 
+  components: {
+    Modal,
+  },
+
   data: () => ({
     lives: Array.from({ length: 5 }, (x, y) => y + 1),
+    openModal: false,
   }),
 
+  watch: {
+    userLife(value) {
+      if (value === 0) {
+        this.openModal = true;
+      }
+    },
+  },
+
   computed: {
-    ...mapState(['userLife']),
+    ...mapState(['userLife', 'currentLevel']),
   },
 
   methods: {
+    ...mapActions(['resetLevelState']),
+
     hasLostLife(value) {
       return value > this.userLife;
     },
@@ -48,8 +66,8 @@ export default {
 <style scoped lang="scss">
 .toolbar-wrapper {
   display: grid;
-  grid-template-columns: 22px 1fr 22px;
-  grid-template-rows: 22px;
+  grid-template-columns: 15px 1fr 15px;
+  grid-template-rows: 33px;
   justify-content: center;
   align-items: center;
 

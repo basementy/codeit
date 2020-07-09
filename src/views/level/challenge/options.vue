@@ -1,19 +1,26 @@
 <template>
   <div class="options-wrapper">
     <div
-      v-text="item"
-      v-for="(item, index) in options"
+      v-text="item.description"
+      v-for="(item, index) in challengeInformation.options"
       class="options-wrapper--button"
       :key="index"
+      @click="onTryAssert(item.id)"
     />
+    <Modal :open="openModal" />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
+import Modal from './modal.vue';
+
 export default {
   name: 'Options',
 
   data: () => ({
+    openModal: false,
     options: [
       'a + b',
       'a - b',
@@ -21,6 +28,26 @@ export default {
       'a / b',
     ],
   }),
+
+  components: {
+    Modal,
+  },
+
+  computed: {
+    ...mapGetters(['challengeInformation', 'levelInformation']),
+  },
+
+  methods: {
+    ...mapActions(['updateChallengeStatus', 'updateUserLife']),
+
+    onTryAssert(id) {
+      if (id === this.challengeInformation.correct) {
+        this.openModal = true;
+      } else {
+        this.updateUserLife();
+      }
+    },
+  },
 };
 </script>
 

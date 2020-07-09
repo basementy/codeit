@@ -4,16 +4,32 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script>
+import { mapActions, mapState } from 'vuex';
 
-export default Vue.extend({
+export default {
   created() {
+    this.loadGameLevels();
+
     if (this.$route.path === '/') {
       this.$router.replace({ name: 'menu' });
     }
+
+    if (this.currentLevel) {
+      this.setGameLevel(this.currentLevel);
+    } else {
+      this.setGameLevel(1);
+    }
   },
-});
+
+  computed: {
+    ...mapState(['currentLevel']),
+  },
+
+  methods: {
+    ...mapActions(['loadGameLevels', 'setGameLevel']),
+  },
+};
 </script>
 
 <style lang="scss">

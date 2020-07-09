@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
 
 import Card from './card.vue';
 import Grid from './grid.vue';
@@ -22,24 +21,6 @@ export default {
     Card,
     Grid,
     Toolbar,
-  },
-
-  created() {
-    this.loadGameLevels();
-
-    if (this.currentLevel) {
-      this.setGameLevel(this.currentLevel);
-    } else {
-      this.setGameLevel(1);
-    }
-  },
-
-  computed: {
-    ...mapState(['currentLevel']),
-  },
-
-  methods: {
-    ...mapActions(['loadGameLevels', 'setGameLevel']),
   },
 };
 </script>
@@ -55,7 +36,7 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
   }
 }

@@ -1,27 +1,23 @@
 <template>
   <div class="card-wrapper">
-    <div class="card-wrapper--question" v-text="level.question" />
+    <div class="card-wrapper--question" v-text="challengeInformation.question" />
     <div class="card-wrapper--code">
       <pre>
-      <code>
-        function sum(a, b) {
-          return a + b;
-        }
-      </code>
+      <code v-text="challengeInformation.code"/>
       </pre>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Card',
 
-  data: () => ({
-    level: {
-      question: 'Lorem ipsum dolor aaaaaaaaaaaaaaa Lorem ipsum dolor aaaaaaaaaaaaaaa Lorem ipsum dolor aaaaaaaaaaaaaaa Lorem ipsum dolor aaaaaaaaaaaaaaa',
-    },
-  }),
+  computed: {
+    ...mapGetters(['challengeInformation']),
+  },
 };
 </script>
 
@@ -47,6 +43,10 @@ export default {
     align-items: center;
     background: #080525;
     border-radius: 4px;
+    padding: 12px 18px;
+    font-size: 12px;
+    line-height: 180%;
+    font-weight: 600;
 
     pre {
       display: flex;
