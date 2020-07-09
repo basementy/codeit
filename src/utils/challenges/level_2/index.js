@@ -10,10 +10,10 @@ export default {
       code: question1,
       correct: 1,
       options: [
-        { id: 1, description: 'return a + b' },
-        { id: 2, description: 'return a - b' },
-        { id: 3, description: 'return a * b' },
-        { id: 4, description: 'return a / b' },
+        { id: 1, description: '20' },
+        { id: 2, description: '0' },
+        { id: 3, description: '30' },
+        { id: 4, description: '40' },
       ],
     },
     {

@@ -1,6 +1,4 @@
-export const question1 = `function sum(a, b) {
-  // Resposta
-}`;
+export const question1 = '10 + 10';
 
 export const question2 = `function exp(a, b) {
   return a ** b
